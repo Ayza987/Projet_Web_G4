@@ -1,0 +1,232 @@
+:root{
+    --bg: lightgray;
+    --pink:rgba(255, 170, 0, 0.914);
+    --lg:lightblue;
+    --fc:lightgray;
+    --white: white;
+}
+
+::before,
+::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--bg);
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border:1px solid rgba(255, 255, 255, 0.2);
+    padding-block: 48px;
+    padding-inline: 40px;
+    height: 480px;
+    width: 400px;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+.form-container h1 {
+    text-align: center;
+    color: var(--white);
+    font-size: 2em;
+    margin-block-end: 3rem;
+
+}
+
+form .form-group{
+
+    position: relative;
+    margin-block-end: 2rem;
+}
+
+.form-group input{
+    width: 100%;
+    padding-block: 8px 0;
+    padding-inline: 8px 36px;
+    height: 48px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    font-size: 1em;
+    color: var(--white);
+    font-weight: 500;
+    transition: 0,25s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group input:valid{
+    border-color: var(--pink);
+
+}
+.form-group label{
+    position: absolute;
+    color: var(--white);
+    top:50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-weight: 500;
+    pointer-events: none;
+
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label{
+    top:0;
+    color: var(--pink);
+}
+.form-group span {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    color: var(--white);
+    transition: 0,25s ease-in-out;
+
+
+}
+.form-group input:focus ~ span,
+.form-group input:valid ~ span{
+    color: var(--pink);
+}
+
+.form-container .form-options{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-block-end: 1rem;
+    color: var(--white);
+    font-weight: 500;
+
+
+
+}
+.form-options a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 40px;
+}
+.form-options a:hover{
+text-decoration: underline;
+}
+
+.form-options{
+    margin-inline-end: 4px;
+    accent-color: var(--pink);
+}
+button{
+    width: 100%;
+    height: 48px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: var(--pink);
+    color:var(--white) ;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    transition:color 0.25s ease-in-out, bacground-color 0,25s ease-in-out;
+
+}
+button:hover{
+    background-color: rgb(37, 34, 34);
+    color: var(--pink);
+
+
+}
+
+.image{
+    animation: formy 2s infinite alternate 2s;
+    
+}
+
+@keyframes formy{
+    30% {
+    rotate: 90deg;
+     translate: 10px ;
+
+    }
+    70%{
+        translate: 10px -260px;
+    }
+    100% {
+        translate: 260px -260px;
+    
+
+    }
+}
+
+
+.image {
+    width: 50px; 
+   /* Ajustez la largeur de l'image selon vos besoins */
+    height: auto; /* Laissez la hauteur automatique pour maintenir les proportions */
+    
+    justify-content: center;
+}
+
+
+.register p {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 14px;
+
+}
+.register a{
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition:0.25s ease-in-out ;
+   
+}
+.register a:hover{
+    color: var(--pink);
+    text-decoration: underline;
+   
+}
+.blob{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background: linear-gradient(360deg, var(--orange)10%,var(--blue)100%);
+    border-radius: 30% 70% 30% 70% / 30% 30% 70% 70%;
+    transform: translate(250px,80%) rotate(60deg);
+    animation: blob 16s infinite alternate;
+}
+
+.blob:hover{
+filter: blur(30px);
+width: 560px;
+height: 560px;
+box-shadow: inset 100px 100px var(--white), inset 200px 200px var(--pink),inset 300px 300px var(--red);
+}
+@keyframes blob {
+5% {
+    transform: translate(250px, 80%) rotate(60deg);
+
+}
+40%{
+    transform: translate(-60%, 50%) rotate(30deg);
+    border-radius: 30% 70% 23% 77% / 8% 30% 70% 92%;
+
+}
+75%{
+    transform: translate(0%, -100%) rotate(-120deg);
+    border-radius: 42% 58% 45% 55% / 38% 55% 45% 62%;
+
+}
+
+
+}
