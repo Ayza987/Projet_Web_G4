@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+     <link rel="stylesheet" href="https://www.w3schools.com/icons/icons_reference.asp"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Page d'Accueil</title>
+</head>
+<body>
+<header> 
+    <nav>
+        <a href="#"><img src="images/cesi.jpg" alt="" class="logo"> </a>
+        <ul> 
+            <li> <a href="#">Accueil</a></li>
+            <li> <a href="#">Services</a></li>
+            <li> <a href="#">Boutique</a></li>
+            <li> <a href="#">à propos</a></li>
+        </ul>
+        <span class="material-icons-sharp" alt="" class="menu-icon">
+            view_headline
+            </span>
+           
+    </nav>
+</header>
+<section class="text">
+  <h1>Bienvenue <span class="auto-typing"></span></h1>
+  <p>Le CESI (Centre d'Études Supérieures Industrielles) est une institution d'enseignement supérieur privée en France.<br> 
+    Il propose une variété de programmes de formation allant du niveau bac+2 au niveau bac+5, couvrant des domaines tels que l'informatique, l'électronique, le génie industriel, les ressources humaines, le marketing, et d'autres disciplines techniques et managériales. <br>
+    Le but de ce site est de créer un environement conviviale entre les étudiants et le BDE
+</p>
+<a href="#">Contactez-nous</a>
+<a href="#"class="cv">Mentions légales</a>
+</section>
+<div class="overlay">
+
+</div>
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+    let typed= new Typed('.auto-typing',{
+    strings:['Chez vous','à la maison', 'dans ce lieux d\'\interactions','sur cesi','sur le site du BDE'],
+    typeSpeed: 100,
+    backSpeed:  100,
+    loop: true,
+    fadeOut: true,
+    fadeOutClass: 'typed-fade-out',
+    fadeOutDelay: 500
+    })
+</script>
+</body>
+</html>

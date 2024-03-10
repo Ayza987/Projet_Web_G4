@@ -30,8 +30,8 @@ body{
     border:1px solid rgba(255, 255, 255, 0.2);
     padding-block: 48px;
     padding-inline: 40px;
-    height: 480px;
-    width: 400px;
+    height: 680px;
+    width: 560px;
     border-radius: 16px;
     z-index: 1;
 }
@@ -139,7 +139,7 @@ button{
     outline:none;
     cursor: pointer;
     transition:color 0.25s ease-in-out, bacground-color 0,25s ease-in-out;
-   
+
 }
 button:hover{
     background-color: rgb(37, 34, 34);
@@ -179,6 +179,9 @@ button:hover{
 }
 
 
+
+
+
 .register p {
     color: var(--white);
     font-weight: 400;
@@ -197,12 +200,13 @@ button:hover{
     text-decoration: underline;
    
 }
+
 .blob{
     position: absolute;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     background: linear-gradient(360deg, var(--orange)10%,var(--blue)100%);
-    border-radius: 30% 70% 30% 70% / 30% 30% 70% 70%;
+    border-radius: 70% 30% 0% 100% / 0% 100% 0% 100%;
     transform: translate(250px,80%) rotate(60deg);
     animation: blob 16s infinite alternate;
 }
@@ -229,5 +233,86 @@ box-shadow: inset 100px 100px var(--white), inset 200px 200px var(--pink),inset 
 
 }
 
+}
+.blob1{
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(360deg, var(--pink)10%,var(--blue)100%);
+    border-radius:70% 30% 0% 100% / 0% 100% 0% 100%;
+    transform: translate(250px,80%) rotate(60deg);
+    animation: blob1 16s infinite alternate;
+}
 
+.blob1:hover{
+filter: blur(30px);
+width: 560px;
+height: 560px;
+box-shadow: inset 100px 100px var(--white), inset 200px 200px var(--pink),inset 300px 300px var(--red);
+}
+@keyframes blob1 {
+0% {
+    transform: translate(250px, 50%) rotate(60deg);
+
+}
+50%{
+    transform: translate(-60%, 30%) rotate(30deg);
+    border-radius: 70% 30% 0% 100%  / 8% 30% 70% 92%;
+
+}
+100%{
+    transform: translate(0%, -90%) rotate(-120deg);
+    border-radius: 42% 58% 45% 55% / 38% 55% 45% 62%;
+
+}
+
+}
+
+.blob2{
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(360deg, var(--purple)10%,var(--pink)100%);
+    border-radius:70% 30% 0% 100% / 0% 100% 0% 100%;
+
+    transform: translate(250px,80%) rotate(60deg);
+    animation: blob2 16s infinite alternate;
+}
+
+.blob2:hover{
+filter: blur(30px);
+width: 560px;
+height: 560px;
+box-shadow: inset 100px 100px var(--white), inset 200px 200px var(--pink),inset 300px 300px var(--red);
+}
+@keyframes blob2 {
+15% {
+    transform: translate(200px, 30%) rotate(60deg);
+
+}
+60%{
+    transform: translate(-60%, 20%) rotate(30deg);
+    border-radius: 70% 30% 0% 100%   / 8% 30% 70% 92%;
+
+}
+100%{
+    transform: translate(5%, -75%) rotate(-120deg);
+    border-radius: 70% 30% 0% 100% / 38% 55% 45% 62%;
+
+}
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+select {
+    padding: 8px;
+    background-color: white;
 }
