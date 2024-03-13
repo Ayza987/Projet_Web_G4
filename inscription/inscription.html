@@ -5,94 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-     <link rel="stylesheet" href="https://www.w3schools.com/icons/icons_reference.asp"/>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-      rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/icons/icons_reference.asp"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Inscription</title>
 </head>
 <body>
-    <div class="blob">
-        
+    <div class="blob"></div>
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="form-container">
+        <img class="image" src="images/flech.PNG" alt="YEUX">   
+        <form onsubmit="return validateForm()">
+            <h1>Inscription</h1>
+            <div class="form-group">
+                <input type="text" name="prenom" id="prenom" list="prenoms" autocomplete="given-name" required>
+                <label for="prenom">Prenom</label>
+                <span class="material-icons-sharp">badge</span>
+            </div>
+            <div class="form-group">
+                <input type="text" id="nom" list="noms" autocomplete="family-name" required>
+                <label>Nom</label>
+                <span class="material-icons-sharp">badge</span>
+            </div>
+            <div class="form-group">
+                <input type="Email" id="email" list="emails" autocomplete="email" required>
+                <label>Email</label>
+                <span class="material-icons-sharp">email</span>
+            </div>
+            <div class="form-group">
+                <input type="Password" id="password" list="passwords" autocomplete="new-password" required>
+                <label>Password</label>
+                <span class="material-icons-sharp">key</span>
+            </div>
+            <div class="form-group">
+                <select name="cesiCenter" required>
+                    <option value="Douala">Douala</option>
+                    <option value="Lyon">Lyon</option>
+                    <option value="Toulouse">Toulouse</option>
+                </select>
+            </div>
+            <div class="form-options">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Mot de passe oublié?</a>
+            </div>
+            <button type="submit">S'Inscrire</button>
+            <div class="register">
+                <p>Inscrivez-vous là!</p>
+            </div>
+        </form>
     </div>
-    <div class="blob1">
-        
-    </div>
-
-    <div class="blob2">
-        
-    </div>
-
+    <script src="Valid_inscription.js"></script>
     
-    
-<div class="form-container">
-    <img class="image" src="images/flech.PNG" alt="YEUX">   
-    <form>
-        <h1>Inscription</h1>
+    </script>
 
-        <div class="form-group">
-            <input type="Prenom" required>
-            <label>Prenom</label>
-            <span class="material-icons-sharp">
-                badge
-            </span>
-        </div>
-
-        
-        <div class="form-group">
-            <input type="Nom" required>
-            <label>Nom</label>
-            <span class="material-icons-sharp">
-                badge
-            </span>
-        </div>
-
-        <div class="form-group">
-            <input type="email" required>
-            <label>Email</label>
-            <span class="material-icons-sharp">
-                email
-            </span>
-        </div>
-
-        <div class="form-group">
-            <input type="Password" required>
-            <label>Password</label>
-            <span class="material-icons-sharp">
-                key
-            </span>
-        </div>
-
-        <div class="form-group">
-            
-       
-        <select  name="cesiCenter" required>
-                <option value="Douala">Douala</option>
-                <option value="lyon">Lyon</option>
-                <option value="toulouse">Toulouse</option>
-                <!-- Ajoutez d'autres options selon vos besoins -->
-        </select>
-       
-        </div>
-    
-
-
-        <div class="form-options">
-            <label><input type="checkbox">Remember me</label>
-            <a href="#">Mot de passe oublié?</a>
-        </div>
-        <button type="submit">S'Inscrire</button>
-        <div class="register">
-            <p>Inscrivez-vous là!</p>
-            
-        </div>
-    </form>
-
-
-
-    
-</div>
-
-    <script src="script.js"></script>
+   
 </body>
 </html>

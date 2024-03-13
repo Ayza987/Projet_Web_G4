@@ -1,6 +1,6 @@
 :root{
-    --bg: lightgray;
-    --pink:rgba(255, 170, 0, 0.914);
+    --bg:rgba(138, 140, 155, 0.866);
+    --pink:rgba(255, 240, 32, 0.914);
     --lg:lightblue;
     --fc:lightgray;
     --white: white;
@@ -205,7 +205,7 @@ button:hover{
     position: absolute;
     height: 400px;
     width: 400px;
-    background: linear-gradient(360deg, var(--orange)10%,var(--blue)100%);
+    background: linear-gradient(360deg, var(--purple)10%,var(--blue)100%);
     border-radius: 70% 30% 0% 100% / 0% 100% 0% 100%;
     transform: translate(250px,80%) rotate(60deg);
     animation: blob 16s infinite alternate;
@@ -315,4 +315,28 @@ label {
 select {
     padding: 8px;
     background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .form-container {
+        width: 80%;
+        padding-inline: 20px;
+    }
+}
+
+/* Petit écran (téléphones) */
+@media only screen and (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding-inline: 10px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding-inline: 10px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }

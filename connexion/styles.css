@@ -1,9 +1,9 @@
 :root{
-    --bg: lightgray;
+    --bg: rgb(220, 220, 224);
     --pink:rgba(255, 170, 0, 0.914);
     --lg:lightblue;
     --fc:lightgray;
-    --white: white;
+    --white: rgb(253, 253, 255);
 }
 
 ::before,
