@@ -1,0 +1,464 @@
+
+
+-- Ajouter un utilisateur
+
+DROP PROCEDURE IF EXISTS AddUser;
+DELIMITER |
+
+CREATE PROCEDURE AddUser(IN user_nom VARCHAR(20), IN user_prenom VARCHAR(20), IN user_email VARCHAR(25), IN user_password VARCHAR(25), IN user_statut VARCHAR(10))
+BEGIN
+     INSERT INTO Commentaire(Nom, Prenom, Email, Password, Statut) 
+   VALUES (user_nom, user_prenom, user_email, user_password, user_statut);
+
+END |
+
+DELIMITER ;
+
+
+
+-- Supprimer un utilisateur
+
+DROP PROCEDURE IF EXISTS DeleteUser;
+DELIMITER |
+
+CREATE PROCEDURE DeleteUser(IN user_id INT)
+BEGIN
+     DELETE  FROM Produits WHERE idUsers=user_id ;
+
+END |
+
+DELIMITER ;
+
+
+
+-- Ajouter une catégorie
+
+DROP PROCEDURE IF EXISTS AddCategorie;
+DELIMITER |
+
+CREATE PROCEDURE AddCategorie(IN categorie_nom VARCHAR(30))
+BEGIN
+     INSERT INTO Categorie(NomCategorie) 
+   VALUES (categorie_nom);
+
+END |
+
+DELIMITER ;
+
+
+
+-- Supprimer une catégorie
+
+DROP PROCEDURE IF EXISTS DeleteCategorie;
+DELIMITER |
+
+CREATE PROCEDURE DeleteCategorie(IN categorie_id INT)
+BEGIN
+     DELETE FROM Categorie WHERE idCategorie=categorie_id ;
+END |
+
+DELIMITER ;
+
+
+
+
+-- Ajouter un produit à la table Produits
+
+DROP PROCEDURE IF EXISTS AddProduit;
+DELIMITER |
+
+CREATE PROCEDURE AddProduit(IN produit_categorie INT, IN produit_nom VARCHAR(20), IN produit_PRIX INT, IN image_url  VARCHAR(255), IN produit_description VARCHAR(100))
+BEGIN
+     
+
+     INSERT INTO Produits(NomCategorie, Nom,  Prix, Description,URLImage) 
+   VALUES (produit_categorie, produit_nom, produit_prix,produit_description, image_url);
+
+END |
+ 
+DELIMITER ;
+
+
+
+-- Supprimer un produit de la table Produits
+
+DROP PROCEDURE IF EXISTS DeleteProduit;
+DELIMITER |
+
+CREATE PROCEDURE DeleteProduit(produit_id)
+BEGIN
+     DELETE FROM Produits WHERE idProduit=produit_id ;
+END |
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+-- Ajouter un commentaire des évènements passés ou de la boîte à idées
+
+DROP PROCEDURE IF EXISTS AddCom;
+DELIMITER |
+
+CREATE PROCEDURE AddCom(IN user_id INT, IN comment_contenu VARCHAR(255), comment_alert BOOLEAN, comment_src BOOLEAN)
+BEGIN
+     INSERT INTO Commentaire(idCommentaire, idUsers, Contenu, AlerteCom, Source) 
+   VALUES (comment_id, user_id, comment_contenu, comment_alert, comment_src);
+
+END |
+
+DELIMITER ;
+
+
+
+-- Supprimer un commentaire des évènements passés ou de la boîte à idées
+
+DROP PROCEDURE IF EXISTS DeleteCom;
+DELIMITER |
+
+CREATE PROCEDURE DeleteCom(IN comment_id INT)
+BEGIN
+     DELETE FROM Commentaire WHERE idCommentaire=comment_id ;
+
+END |
+
+DELIMITER ;
+
+
+
+-- Ajouter une photo aux évènements passés
+
+DROP PROCEDURE IF EXISTS AddPhoto;
+DELIMITER |
+
+CREATE PROCEDURE AddPhoto( IN user_id INT, IN photo_description VARCHAR(255), IN image_url VARCHAR(50), IN photo_alert BOOLEAN)
+BEGIN
+     INSERT INTO Photo( idUsers, UrlImage, Description, AlertePhoto) 
+   VALUES (user_id, image_url, photo_description, photo_alert);
+
+END |
+
+DELIMITER ;
+
+
+-- Supprimer une photo des évènements passés
+
+DROP PROCEDURE IF EXISTS DeletePhoto;
+DELIMITER |
+
+CREATE PROCEDURE DeletePhoto(IN photo_id)
+BEGIN
+     DELETE FROM Commentaire WHERE idPhoto=photo_id ;
+
+END |
+
+DELIMITER ;
+
+
+
+-- Signaler un commentaire
+
+DROP PROCEDURE IF EXISTS AlerteCommentaire;
+DELIMITER |
+
+CREATE PROCEDURE AlerteCommentaire(IN comment_id INT )
+BEGIN
+     UPDATE Commentaire SET AlerteCom = 1 WHERE idCommentaire=comment_id;
+
+END |
+
+DELIMITER ;
+
+
+
+
+-- Signaler une photo
+
+DROP PROCEDURE IF EXISTS AlertePhoto;
+DELIMITER |
+
+CREATE PROCEDURE AlertePhoto(IN photo_id INT)
+BEGIN
+     UPDATE Photo SET AlertePhoto = 1 WHERE idPhoto=photo_id;
+
+END |
+
+DELIMITER ;
+
+
+
+
+
+
+
+-- Ajouter un produit au panier
+
+DROP PROCEDURE IF EXISTS AddtoPanier;
+DELIMITER |
+
+CREATE PROCEDURE AddtoPanier( IN user_id INT, IN produit_id INT, IN panier_date DATEtime, IN produit_quantite INT, IN prixtotal INT)
+BEGIN
+     INSERT INTO Commentaire( idUsers, idProduit, DatePanier, Quantite, PrixTotal ) 
+   VALUES ( user_id, produit_id, panier_date, produit_quantite, prixtotal);
+END |
+
+DELIMITER ;
+
+
+
+
+-- Supprimer un produit du panier
+
+DROP PROCEDURE IF EXISTS DeletePanier;
+DELIMITER |
+
+CREATE PROCEDURE DeletePanier(IN panier_id INT)
+BEGIN
+     DELETE FROM Panier WHERE idPanier=panier_id ;
+END |
+
+DELIMITER ; 
+
+
+
+-- Ajouter une commande
+
+DROP PROCEDURE IF EXISTS AddtoCommande;
+DELIMITER |
+
+CREATE PROCEDURE AddtoCommande(IN user_id INT, IN produit_id INT, IN  produit_quantite INT, IN  prixtotal INT, IN commande_date DATEtime, IN commande_statut BOOLEAN)
+BEGIN
+     INSERT INTO Commentaire(idUsers, idProduit, Quantite, PrixTotal, DateCommande, Statut) 
+   VALUES ( user_id, produit_id, produit_quantite, prixtotal , commande_date, commande_statut );
+
+END |
+
+DELIMITER ;
+
+
+
+-- Changer le statut d'une commande
+
+DROP PROCEDURE IF EXISTS ChangeStatutCommande;
+DELIMITER |
+
+CREATE PROCEDURE ChangeStatutCommande(IN commande_id INT,  IN com_statut BOOLEAN)
+BEGIN
+     UPDATE Commande SET Statut = com_statut WHERE idCommande=commande_id;
+END |
+
+DELIMITER ;
+
+
+
+-- Ajouter un évènement
+
+DROP PROCEDURE IF EXISTS AddEvent;
+DELIMITER |
+
+CREATE PROCEDURE AddEvent( IN event_nomUser VARCHAR(20), IN event_description VARCHAR(50), IN event_date DATE , IN event_prix INT, IN event_image VARCHAR(50), IN event_statut BOOLEAN)
+BEGIN
+     INSERT INTO Commentaire( Nom, Description, DateEvent, Prix, URLImage, Statut) 
+   VALUES (event_nomUser, event_description, event_date, event_prix, event_image, event_statut );
+
+END |
+
+DELIMITER ;
+
+
+
+
+-- Supprimer un évènement
+
+DROP PROCEDURE IF EXISTS DeleteEvent;
+DELIMITER |
+
+CREATE PROCEDURE DeleteEvent(IN evenement_id INT )
+BEGIN
+     DELETE FROM Evenement WHERE idEvenement=evenement_id ;
+END |
+
+DELIMITER ;
+
+
+
+-- Ajouter un like
+
+DROP PROCEDURE IF EXISTS AddLike;
+DELIMITER |
+
+CREATE PROCEDURE AddLike(IN user_id INT,  photo_id INT)
+BEGIN
+     INSERT INTO Likes(idUsers, idPhoto) 
+   VALUES (user_id, photo_id);
+
+END |
+
+DELIMITER ;
+
+
+
+
+-- Supprimer un like
+
+DROP PROCEDURE IF EXISTS DeleteLike;
+DELIMITER |
+
+CREATE PROCEDURE DeleteLike(IN user_id INT, IN photo_id INT)
+BEGIN
+     DELETE FROM Likes WHERE idUsers=user_id AND idPhoto=photo_id ;
+END |
+
+DELIMITER ;
+
+
+
+-- Compter le nombre de likes
+
+DROP PROCEDURE IF EXISTS CountLike;
+DELIMITER |
+
+CREATE PROCEDURE CountLike( photo_id )
+BEGIN
+ 
+   SELECT COUNT(*) FROM Likes WHERE idPhoto=photo_id ;
+
+END |
+
+DELIMITER ;
+
+
+
+-- Ajouter un inscrit à la liste d'inscrits
+
+DROP PROCEDURE IF EXISTS Inscrire;
+DELIMITER |
+
+CREATE PROCEDURE Inscrire(IN user_id INT, IN evenement_id INT)
+BEGIN
+     INSERT INTO Inscrits (idUsers, idEvenement) 
+   VALUES (user_id, evenement_id);
+
+END |
+
+DELIMITER ;
+
+
+
+-- Supprimer un inscrit de la liste
+
+DROP PROCEDURE IF EXISTS DeleteInscrits;
+DELIMITER |
+
+CREATE PROCEDURE DeleteInscrits(IN user_id INT, IN evenement_id INT)
+BEGIN
+     DELETE FROM Inscrits WHERE idUsers=user_id AND idEvenement=evenement_id;
+END |
+
+DELIMITER ;
+
+
+
+
+-- Compter le nombre d'inscrits à un évènement
+
+DROP PROCEDURE IF EXISTS CountInscrits;
+DELIMITER |
+
+CREATE PROCEDURE CountInscrits(IN evenement_id INT)
+BEGIN
+ 
+   SELECT COUNT(*) FROM Inscrits WHERE idEvenement=evenement_id ;
+
+END |
+
+DELIMITER ;
+
+
+
+-- Avoir la liste des personnes incrites à un évènement
+
+
+DROP PROCEDURE IF EXISTS ListeInscrits;
+DELIMITER |
+
+CREATE PROCEDURE ListeInscrits(IN evenement_ida INT)
+BEGIN
+ 
+   SELECT Users.idUsers, Users.Nom FROM Users INNER JOIN Inscrits   
+   ON Users.idUsers = Inscrits.idUsers
+   WHERE idEvenement = evenement_id;
+
+END |
+
+DELIMITER ;
+
+
+-- Avoir la liste des personnes ayant liké une photo
+
+
+DROP PROCEDURE IF EXISTS ListeLikes;
+DELIMITER |
+
+CREATE PROCEDURE ListeLikes(IN photo_id)
+BEGIN
+ 
+   SELECT Users.idUsers, Users.Nom FROM Users INNER JOIN Likes INNER JOIN Inscrits
+   ON Users.idUsers = Likes.idUsers 
+   WHERE idPhoto = photo_id;
+
+END |
+
+DELIMITER ;
+
+
+-- Ajouter un vote
+
+DROP PROCEDURE IF EXISTS AddVote;
+DELIMITER |
+
+CREATE PROCEDURE AddVote(IN user_id INT,  commentaire_id INT)
+BEGIN
+     INSERT INTO Vote(idUsers, idCommentaire) 
+   VALUES (user_id, commentaire_id );
+
+END |
+
+DELIMITER ;
+
+
+
+
+-- Supprimer un  vote
+
+DROP PROCEDURE IF EXISTS DeleteVote;
+DELIMITER |
+
+CREATE PROCEDURE DeleteVote(IN user_id INT, IN commentaire_id  INT)
+BEGIN
+     DELETE FROM Vote WHERE idUsers=user_id AND idCommentaire=commentaire_id  ;
+END |
+
+DELIMITER ;
+
+
+
+-- Compter le nombre de likes
+
+DROP PROCEDURE IF EXISTS CountVote;
+DELIMITER |
+
+CREATE PROCEDURE CountVote( commentaire_id  )
+BEGIN
+ 
+   SELECT COUNT(*) FROM Vote WHERE idCommentaire=commentaire_id  ;
+
+END |
+
+DELIMITER ;
+
+
